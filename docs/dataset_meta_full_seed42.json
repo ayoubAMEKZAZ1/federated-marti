@@ -1,0 +1,66 @@
+{
+  "description": "Synthetic multi-bank fraud/AML dataset with device and behavioural biometrics for Federated-MARTI (v2)",
+  "generator": "generate_federated_marti_v2.py",
+  "seed": 42,
+  "n_banks": 8,
+  "n_global_customers": 40630,
+  "n_synthetic_identities": 630,
+  "n_accounts": 51832,
+  "n_transactions": 1156904,
+  "fraud_rate": 0.010514269118267376,
+  "fraud_counts": {
+    "none": 1144740,
+    "mule_account": 4032,
+    "money_laundering_layering": 1808,
+    "synthetic_identity": 1526,
+    "first_party": 1401,
+    "card_not_present": 1328,
+    "account_takeover": 1286,
+    "social_engineering_app": 783
+  },
+  "customers_in_multiple_banks": 9325,
+  "n_devices": 67790,
+  "splits": {
+    "train": "2024-01-01..2024-08-31",
+    "val": "2024-09-01..2024-10-31",
+    "test": "2024-11-01..2024-12-30"
+  },
+  "split_counts": {
+    "train": 771685,
+    "val": 193867,
+    "test": 191352
+  },
+  "raw_event_sequence": {
+    "max_len": 64,
+    "fields": [
+      "event_type",
+      "dt_ms",
+      "hold_ms",
+      "pressure",
+      "touch_size",
+      "velocity",
+      "straightness",
+      "accel_std",
+      "screen_idx"
+    ],
+    "event_types": {
+      "pad": 0,
+      "key": 1,
+      "backspace": 2,
+      "tap_or_click": 3,
+      "swipe_or_scroll": 4,
+      "mouse_move": 5,
+      "paste": 6,
+      "screen_change": 7,
+      "biometric_auth": 8
+    },
+    "missing_value": -1,
+    "dt_clipped_ms": 60000,
+    "truncation": "sessions longer than max_len keep the first and last max_len/2 events"
+  },
+  "drift": {
+    "app_v5_release": "2024-07-01",
+    "q4_device_farm": "first seen 2024-11-01",
+    "fraud_mix": "RAT takeovers and coercion scams grow through H2; card testing peaks Nov-Dec"
+  }
+}
